@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class='container'>
+  <view class='padding'>
+    <button class='margin-b' type='primary' bindtap='alertTip'>提示内容</button>
+    <button class='margin-b' type='default' bindtap='alertInput'>带输入框</button>
+    <button class='margin-b' type='warn' bindtap='alertConfirm'>隐藏取消按钮</button>
+  </view>
+  <my-layer 
+    title='提示' 
+    hidden='{{layerStatus}}' 
+    cancel-text='关闭' 
+    confirm-text='确定' 
+    no-cancel='{{noCancel}}' 
+    bindcancel='cancel' 
+    bindconfirm='confirm' >
+
+    <view class='padding-lr' wx:if='{{type}}'>
+      我是一个简单的提示框组件
+    </view>
+    
+    <view class='padding-lr' wx:else>
+      <view class='row line-height-88'>
+        <view>联系人：</view>
+        <input class='col border input' placeholder='请输入联系人姓名' bindinput='name'></input>
+      </view>
+      <view class='row padding-t line-height-88'>
+        <view>手机号：</view>
+        <input class='col border input' type='number' placeholder='请输入手机号' maxlength='11' bindinput='mobile'></input>
+      </view>
+    </view>
+  </my-layer>
+</view>
+<!--  微信自带组件  -->
+<!--  被微信 showModal 取代  -->
+<!--
+<modal 
+  title="退出应用"
+  hidden="{{hiddenModal}}"
+  confirm-text="再看看"
+  cancel-text="退出"
+  bindconfirm="listenerConfirm"
+  bindcancel="listenerCancel" >
+  不退出，怎么地
+</modal>
+-->

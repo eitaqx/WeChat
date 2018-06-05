@@ -1,0 +1,8 @@
+/* component/layer/layer.wxss */
+@import "/app.wxss";
+.layer .main{padding: 0;}
+.font-38{font-size: 38rpx;}
+.border-t::after{left: 0;right: 0;}
+.margin-t{margin-top: 30rpx;}
+.padding-tb{padding: 30rpx 0;}
+.color{color: #1AAD19;}

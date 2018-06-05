@@ -1,0 +1,13 @@
+<!--component/layer/layer.wxml-->
+<view class='layer {{hidden ? "layer-show" : "" }}'>
+  <view class='main' wx:if='{{hidden}}'>
+    <view class='padding text-center font-38'>{{title}}</view>
+    <view class='padding color-6c'>
+      <slot wx:for='{{10}}' wx:key />
+    </view>
+    <view class='row text-center margin-t border-t'>
+      <view class='col border-r padding-tb' bindtap='cancel' wx:if='{{noCancel}}'>{{cancleText}}</view>
+      <view class='col padding-tb color' catchtap='confirm'>{{confirmText}}</view>
+    </view>
+  </view>
+</view>

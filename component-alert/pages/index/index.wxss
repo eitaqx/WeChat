@@ -1,0 +1,3 @@
+/**index.wxss**/
+.line-height-88{line-height: 88rpx;}
+.input{height: 88rpx;padding: 0 10rpx;}
