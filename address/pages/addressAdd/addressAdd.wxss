@@ -1,0 +1,4 @@
+/* pages/addressAdd/addressAdd.wxss */
+button{margin-top: 40rpx;font-size: 32rpx;line-height: 88rpx;}
+.icon_add{width: 40rpx;height: 40rpx;display: inline-block;}
+.padding{padding: 25rpx;}

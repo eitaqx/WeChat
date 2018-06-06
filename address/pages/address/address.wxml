@@ -1,0 +1,25 @@
+<!--pages/address/address.wxml-->
+<view class='container'>
+  <view class='bg-ff' wx:if='{{pageStatus && list.length > 0}}'>
+    <view class='row padding-tb {{index != 0 ? "border-t" : ""}}' wx:for='{{list}}' wx:key >
+      <label class='padding-lr label position-r' bindtap='bindAddress' data-index='{{index}}'>
+        <icon class='icon_position' type='success' size='22' color='#E74246' wx:if='{{item.default == 1}}'></icon>
+        <icon class='icon_position' type='circle' size='22' color='#999' wx:else></icon>
+      </label>
+      <view class='col' bindtap='bindAddress' data-index='{{index}}'>
+        <view>{{item.name}} {{item.mobile}}</view>
+        <view class='color-6c'>
+          {{item.mapAddress}} {{item.inputAddress}}
+        </view>
+      </view>
+      <view class='padding-lr edit position-r'>
+        <image src='/icon/edit.png' class='edit-img' bindtap='addressEdit' data-item='{{item}}' data-index='{{index}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class='icon_img_tip' wx:if='{{pageStatus && list.length == 0}}'>
+    <image src='/icon/icon_tip.png' />
+    <view>快去添加地址吧~~</view>
+  </view>
+  <view class='footer bg color-ff text-center' bindtap='addressAdd'>新增地址</view>
+</view>

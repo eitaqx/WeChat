@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='bg-ff margin-t'>
+    <view class='item-forward border-b' bindtap='addressSelect'>选择地址</view>
+    <view class='item-forward' bindtap='addressPlus'>收货地址</view>
+  </view>
+</view>

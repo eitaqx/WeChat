@@ -1,0 +1,28 @@
+<!--pages/addressAdd/addressAdd.wxml-->
+<view class='container'>
+  <view class='bg-ff'>
+    <view class='row padding border-b'>
+      <view>收货人</view>
+      <input class='col padding-l' placeholder='请输入姓名' bindinput="nameChange"></input>
+    </view>
+    <view class='row padding border-b'>
+      <view>联系电话</view>
+      <input type='number' class='col padding-l' placeholder='手机或固定电话' bindinput="mobileChange" maxlength='11'></input>
+    </view>
+    <view class='row padding border-b'>
+      <view>收货地址</view>
+      <view class='col color-6c padding-l' bindtap='addressChange'>
+        <image src='/icon/icon_07.png' class='icon_add'></image>
+        {{address.mapAddress ? address.mapAddress : '选择收货地址'}}
+      </view>
+    </view>
+    <view class='row padding'>
+      <view>楼号-门牌号</view>
+      <input class='col padding-l' placeholder='街道门牌信息' bindinput="detailChange"></input>
+    </view>
+  </view>
+  <view class='padding'>
+    <button class='bg color-ff' bindtap='submit'>保存</button>
+  </view>
+</view>
+<view class='warning' wx:if='{{warning.isShow}}'>{{warning.text}}</view>

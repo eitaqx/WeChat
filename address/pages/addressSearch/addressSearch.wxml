@@ -1,0 +1,18 @@
+<!--pages/addressSearch/addressSearch.wxml-->
+<view class='container'>
+  <view class='header bg-ff row padding'>
+    <icon type='search' size='22' color='#999' />
+    <input placeholder='请输入地址' class='col padding-l' bindinput='bindInput' focus auto-focus bindconfirm='bindConfirm'></input>
+  </view>
+  <view class='bg-ff'>
+    <view class='padding color-99 font-26'>从下面列表中选择</view>
+    <view class='padding border-t list position-r' wx:for='{{list}}' wx:key bindtap='address' data-item='{{item}}'>
+      <view class='padding-b'>{{item.title}}</view>
+      <view class='color-99'>{{item.address}}</view>
+    </view>
+    <view class='icon_img_tip' wx:if='{{pageStatus && list.length == 0}}'>
+      <image src='/icon/icon_tip.png' />
+      <view>快去添加地址吧~~</view>
+    </view>
+  </view>
+</view>

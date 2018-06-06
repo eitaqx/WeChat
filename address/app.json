@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/address/address",
+    "pages/addressAdd/addressAdd",
+    "pages/addressEdit/addressEdit",
+    "pages/addressTest/addressTest",
+    "pages/addressSearch/addressSearch"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

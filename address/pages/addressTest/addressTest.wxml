@@ -1,0 +1,61 @@
+<!--pages/addressTest/addressTest.wxml-->
+<view class='container'>
+  <view class='header bg-ff'>
+    <view class='row padding border-b font-26'>
+      <view class='col ellipsis-1'>
+        <view class='ellipsis-1'>
+          <view class=''>
+            <text class='color'>[当前] </text>{{address.title}}
+          </view>
+          <view class='color-99 ellipsis-1'>
+            {{address.address}}
+          </view>
+        </view>
+      </view>
+      <view class='padding-l' bindtap='addressSearch'>
+        <icon class='icon_search' type='search' size='22' color='#666' />
+      </view>
+    </view>
+    <view class='row padding font-26'>
+      <input class='col' placeholder='补充详细地址：门牌号、楼房、房间号' bindinput='bindInput' bindconfirm='submit'></input>
+      <view class='bg color-ff padding-lr btn border' bindtap='submit'>确定</view>
+    </view>
+  </view>
+  <map 
+    id='map'
+    scale='{{map.scale}}'
+    show-location='{{map.showLocation}}'
+    longitude='{{map.longitude}}'
+    latitude='{{map.latitude}}'
+    width='{{map.width}}'
+    height='{{map.height}}'
+    controls='{{map.controls}}'
+    markers='{{map.markers}}'
+    bindregionchange='mapChange'
+  ></map>
+  <view class='footer bg-ff font-26'>
+    <view class='row text-center foot-border'>
+      <view class='col padding {{active == 1 ? "foot-active" : "" }}' bindtap='nearby'>附近地址</view>
+      <view class='col padding {{active == 2 ? "foot-active" : "" }}' bindtap='often'>常用地址</view>
+    </view>
+    <scroll-view scroll-y class='scroll'>
+      <view class='padding border-b position-r' wx:for='{{list}}' wx:key bindtap='bindAddress' data-index='{{index}}' wx:if='{{active == 1}}'>
+        <view class='row'>{{item.title}}</view>
+        <view class='row color-99'>{{item.address}}</view>
+        <icon type='success' color='#E74246' size='22' class='icon_circle' wx:if='{{item.select}}'/>
+      </view>
+      <view class='padding border-b position-r' wx:for='{{oftenList}}' wx:key bindtap='oftenAddress' data-item='{{item}}' wx:if='{{active == 2}}'>
+        <view class='row'>电话：{{item.mobile}}</view>
+        <view class='row color-99'>{{item.address}}</view>
+      </view>
+      <view class='padding-tb text-center font-26 color-6c' wx:if='{{active == 2 && oftenList.length != 0}}'>
+        没有想要的地址? <text class='color' bindtap='addressList'>点我去修改</text>
+      </view>
+      <view class='icon_img_tip' wx:if='{{active == 2 && oftenList.length == 0}}'>
+        <image src='/icon/icon_tip.png' />
+        <view>快去<text class='color' bindtap='addressAdd'>添加地址</text>吧~~</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+

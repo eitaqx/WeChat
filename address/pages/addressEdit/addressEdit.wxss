@@ -1,0 +1,2 @@
+/* pages/addressEdit/addressEdit.wxss */
+button{margin-top: 40rpx;font-size: 32rpx;line-height: 88rpx;}
